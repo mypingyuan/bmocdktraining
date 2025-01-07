@@ -6,11 +6,6 @@ export class Ec2CodeStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'Ec2CodeQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+   
   }
 }
