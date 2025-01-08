@@ -20,12 +20,12 @@ jobs: #defin jobs
         run: ls
 
       - name: install dependencies
-        run:
+        run: |
           cd bmocdktraining
           npm install
-          npm install  aws-cdk
+          npm install  -g aws-cdk
 
       - name: compile cdk code
-        run:
+        run: |
           cd bmocdktraining
           cdk synth
