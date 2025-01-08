@@ -21,11 +21,11 @@ jobs: #defin jobs
 
       - name: install dependencies
         run: |
-          cd bmocdktraining
+          cd pingday3ec2vpc
           npm install
           npm install  -g aws-cdk
 
       - name: compile cdk code
         run: |
-          cd bmocdktraining
+          cd pingday3ec2vpc
           cdk synth
