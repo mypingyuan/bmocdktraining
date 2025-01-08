@@ -1,0 +1,168 @@
+{
+ "Resources": {
+  "pingday3vmInstanceSecurityGroupAA314EFD": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "PingEc2VpcDay3Stack/pingday3vm/InstanceSecurityGroup",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "pingday3LinuxVM"
+     }
+    ],
+    "VpcId": "vpc-07eede624774fec02"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PingEc2VpcDay3Stack/pingday3vm/InstanceSecurityGroup/Resource"
+   }
+  },
+  "pingday3vmInstanceRole1DC828E3": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ec2.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "pingday3LinuxVM"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PingEc2VpcDay3Stack/pingday3vm/InstanceRole/Resource"
+   }
+  },
+  "pingday3vmInstanceProfileE901BC6B": {
+   "Type": "AWS::IAM::InstanceProfile",
+   "Properties": {
+    "Roles": [
+     {
+      "Ref": "pingday3vmInstanceRole1DC828E3"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PingEc2VpcDay3Stack/pingday3vm/InstanceProfile"
+   }
+  },
+  "pingday3vmADB5FB8E": {
+   "Type": "AWS::EC2::Instance",
+   "Properties": {
+    "AvailabilityZone": "us-east-1a",
+    "IamInstanceProfile": {
+     "Ref": "pingday3vmInstanceProfileE901BC6B"
+    },
+    "ImageId": {
+     "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+    },
+    "InstanceType": "t2.micro",
+    "KeyName": "splunk-key",
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "pingday3vmInstanceSecurityGroupAA314EFD",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetId": "subnet-03d450bc480b2203a",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "pingday3LinuxVM"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": "#!/bin/bash"
+    }
+   },
+   "DependsOn": [
+    "pingday3vmInstanceRole1DC828E3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PingEc2VpcDay3Stack/pingday3vm/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/2WOzQrCMBCEn6X3dG0L+gIexJOlfQCJ6Ra2P0nZbCwS8u5StSdPw3wzA1NBeSyhyPTqc9ON+UQPiK1oM6oGvQtsUOnV3yOaCuLVetHWoGrRBCZ5XdiFRZ17+wf2alKkZ4iNm3DDu+5xza6nCVPaYK1ZzyjIm7kFWYJ8Nr8jSVnXIQz+8KwKKE9QZIMnyjlYoRmh+eoblmycDNMAAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "PingEc2VpcDay3Stack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": {
+   "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+   "Default": "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2"
+  },
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Outputs": {
+  "printoutid": {
+   "Description": "print instance id :",
+   "Value": {
+    "Ref": "pingday3vmADB5FB8E"
+   }
+  },
+  "printoutip": {
+   "Description": "print instance ip :",
+   "Value": {
+    "Fn::GetAtt": [
+     "pingday3vmADB5FB8E",
+     "PublicIp"
+    ]
+   }
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}
