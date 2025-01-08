@@ -38,5 +38,5 @@ jobs: #defin jobs
           AWS_REGION: ${{ secrets.AWS_REGION }}
 
         run: |
-        cd pingday3ec2vpc
-        cdk deploy --require-approval never 
+          cd pingday3ec2vpc
+          cdk deploy --require-approval never 
