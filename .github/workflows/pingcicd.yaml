@@ -26,5 +26,6 @@ jobs: #defin jobs
           npm install -g aws-cdk
 
       - name: compile cdk code
+        run:
           cd bmocdktraining
           cdk synth
