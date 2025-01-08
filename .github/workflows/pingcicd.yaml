@@ -6,6 +6,7 @@ on:
 jobs: #defin jobs
   job1: #deploy job
     runs-on: ubuntu-latest #free server from azure
+  
     steps: #steps to setup cdk and run 
       - name: setup node.js version 20
         uses: actions/setup-node@v3
