@@ -34,7 +34,7 @@ jobs: #defin jobs
       - name: deploy cdk to aws
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
-          AWS_SECRETE_KEY: ${{ secrets.AWS_SECRETE_KEY }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
 
         run: |
