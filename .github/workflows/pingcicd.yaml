@@ -1,42 +1,76 @@
-name: deploy cdk stacks on aws
-on:
-  push:
+name: Deploy Stack on aws 
+on: 
+  push: 
     branches:
-      - main # deploy code whenever pushed to main branch
-jobs: #defin jobs
-  job1: #deploy job
-    runs-on: ubuntu-latest #free server from azure
-  
-    steps: #steps to setup cdk and run 
-      - name: setup node.js version 20
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
+      - main  # when ever any code to pushed to master branch it will trigger
+    
+jobs:  # we are creating jobs to perform steps
+  ec2-deploy: # job name 
+    runs-on: ubuntu-latest # from azure pool
+    needs: s3-deploy # it will run after s3-deploy job 
 
-      - name: checkout code
-        uses: actions/checkout@v2
+    steps: # steps to setup cdk and run code 
+    - name: setup node.js 20 version
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
 
-      - name: verify
-        run: ls
+    - name: checkout git repo code to vm 
+      uses: actions/checkout@v2 
 
-      - name: install dependencies
-        run: |
-          cd pingday3ec2vpc
-          npm install
-          npm install  -g aws-cdk
+    - name: verify code in vm 
+      run: ls 
 
-      - name: compile cdk code
-        run: |
-          cd pingday3ec2vpc
-          cdk synth
+    - name: install dependecies
+      run: | 
+        cd pingday4bestway/
+        npm install 
+        npm install -g aws-cdk 
 
+    - name: complie code 
+      run: |
+        cd pingday4bestway/
+        cdk synth 
+    - name: deploy cdk in aws account 
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+      run: |
+        cd pingday4bestway/
+        cdk deploy Pingday4ec2all --require-approval never
 
-      - name: deploy cdk to aws
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+  s3-deploy:
+    runs-on: ubuntu-latest # from azure pool 
 
-        run: |
-          cd pingday3ec2vpc
-          cdk deploy --require-approval never 
+    steps: # steps to setup cdk and run code 
+    - name: setup node.js 20 version
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: checkout git repo code to vm 
+      uses: actions/checkout@v2 
+
+    - name: verify code in vm 
+      run: ls 
+
+    - name: install dependecies
+      run: | 
+        cd pingday4bestway/
+        npm install 
+        npm install -g aws-cdk 
+
+    - name: complie code 
+      run: |
+        cd pingday4bestway/
+        cdk synth 
+    - name: deploy cdk in aws account 
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+      run: |
+        cd pingday4bestway/
+        cdk deploy Pingday4BestwayStack --require-approval never 
+

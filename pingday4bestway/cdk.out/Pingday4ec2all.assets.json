@@ -1,0 +1,20 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "61375c9b19c00db7580641d3e0e375f39a38b2e3aa2e62af2913ec1820819c47": {
+      "source": {
+        "path": "Pingday4ec2all.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "992382386705-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-992382386705-us-east-1",
+          "objectKey": "61375c9b19c00db7580641d3e0e375f39a38b2e3aa2e62af2913ec1820819c47.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-file-publishing-role-992382386705-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

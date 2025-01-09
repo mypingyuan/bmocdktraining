@@ -1,0 +1,221 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "Pingday4BestwayStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "Pingday4BestwayStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "Pingday4BestwayStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://992382386705/us-east-1",
+      "properties": {
+        "templateFile": "Pingday4BestwayStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-deploy-role-992382386705-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-cfn-exec-role-992382386705-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-992382386705-us-east-1/d9b5808e6ba2c457cd9139558b6849140977fd598ce16adf8a141be4cd7e3f8e.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "Pingday4BestwayStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-lookup-role-992382386705-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "Pingday4BestwayStack.assets"
+      ],
+      "metadata": {
+        "/Pingday4BestwayStack/pingday4bucket1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingday4bucket17229DF0B"
+          }
+        ],
+        "/Pingday4BestwayStack/pingday4bucket1/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingday4bucket1PolicyC052AA4F"
+          }
+        ],
+        "/Pingday4BestwayStack/pingday4bucket1/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingday4bucket1AutoDeleteObjectsCustomResourceED9DA33A"
+          }
+        ],
+        "/Pingday4BestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/Pingday4BestwayStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/Pingday4BestwayStack/pingday4bucket2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingday4bucket2A630645B"
+          }
+        ],
+        "/Pingday4BestwayStack/pingday4bucket2/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingday4bucket2Policy32ADB3D7"
+          }
+        ],
+        "/Pingday4BestwayStack/pingday4bucket2/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingday4bucket2AutoDeleteObjectsCustomResourceE7475729"
+          }
+        ],
+        "/Pingday4BestwayStack/pingl2s3/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingl2s346E8BD33"
+          }
+        ],
+        "/Pingday4BestwayStack/pingl2s3/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingl2s3Policy9B121740"
+          }
+        ],
+        "/Pingday4BestwayStack/pingl2s3/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingl2s3AutoDeleteObjectsCustomResourceDBDB86D1"
+          }
+        ],
+        "/Pingday4BestwayStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/Pingday4BestwayStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/Pingday4BestwayStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "Pingday4BestwayStack"
+    },
+    "Pingday4ec2all.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "Pingday4ec2all.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "Pingday4ec2all": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://992382386705/us-east-1",
+      "properties": {
+        "templateFile": "Pingday4ec2all.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-deploy-role-992382386705-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-cfn-exec-role-992382386705-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-992382386705-us-east-1/61375c9b19c00db7580641d3e0e375f39a38b2e3aa2e62af2913ec1820819c47.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "Pingday4ec2all.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::992382386705:role/cdk-hnb659fds-lookup-role-992382386705-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "Pingday4ec2all.assets"
+      ],
+      "metadata": {
+        "/Pingday4ec2all/pingday4securitygroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingday4securitygroup55F70790"
+          }
+        ],
+        "/Pingday4ec2all/pingday3vm/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingday3vmInstanceRole1DC828E3"
+          }
+        ],
+        "/Pingday4ec2all/pingday3vm/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingday3vmInstanceProfileE901BC6B"
+          }
+        ],
+        "/Pingday4ec2all/pingday3vm/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingday3vmADB5FB8E"
+          }
+        ],
+        "/Pingday4ec2all/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/Pingday4ec2all/printoutip": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "printoutip"
+          }
+        ],
+        "/Pingday4ec2all/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/Pingday4ec2all/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/Pingday4ec2all/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "Pingday4ec2all"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
