@@ -1,0 +1,19 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "789fca4e31e083662f6a85958a60bd7a02fb9f348414f4bd62a9a9568728d9f9": {
+      "source": {
+        "path": "Pingproject1Stack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "789fca4e31e083662f6a85958a60bd7a02fb9f348414f4bd62a9a9568728d9f9.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

@@ -1,0 +1,115 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "Pingproject1Stack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "Pingproject1Stack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "Pingproject1Stack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "Pingproject1Stack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/789fca4e31e083662f6a85958a60bd7a02fb9f348414f4bd62a9a9568728d9f9.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "Pingproject1Stack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "Pingproject1Stack.assets"
+      ],
+      "metadata": {
+        "/Pingproject1Stack/pingtable": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "pingtable78A79EEA"
+            }
+          }
+        ],
+        "/Pingproject1Stack/pingtable/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pingtable78A79EEA"
+          }
+        ],
+        "/Pingproject1Stack/pinglambdafunc/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pinglambdafuncServiceRole17A0F38E"
+          }
+        ],
+        "/Pingproject1Stack/pinglambdafunc/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pinglambdafuncServiceRoleDefaultPolicy83E8EA5F"
+          }
+        ],
+        "/Pingproject1Stack/pinglambdafunc/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pinglambdafunc321A0C48"
+          }
+        ],
+        "/Pingproject1Stack/Rule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Rule4C995B7F"
+          }
+        ],
+        "/Pingproject1Stack/Rule/AllowEventRulePingproject1Stackpinglambdafunc10C17965": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RuleAllowEventRulePingproject1Stackpinglambdafunc10C179652F2C6A75"
+          }
+        ],
+        "/Pingproject1Stack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/Pingproject1Stack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/Pingproject1Stack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/Pingproject1Stack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "Pingproject1Stack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
